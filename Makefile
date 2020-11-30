@@ -1,13 +1,14 @@
+CXX=g++
+
+OBJECTS=$(patsubst %.cpp,%.o,$(shell find . -type f -name "*.cpp"))
+
 all: main
 
-main.o: main.cpp new.h
-	g++ -c main.cpp -o main.o
+%.o: %.cpp
+	$(CXX) -c $< -o $@
 
-test.o: test.cpp test.h
-	g++ -c test.cpp -o test.o
-
-main: main.o test.o
-	g++ main.o test.o -o main
+main: $(OBJECTS)
+	$(CXX) $(OBJECTS) -o $@
 
 .PHONY clean:
 	-rm main

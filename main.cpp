@@ -1,14 +1,11 @@
 #include <cstdio>
 
-#include "test.h"
+#include "parent.h"
 
 int main() {
 
-    Test* t = new Test(42, 77);
-
-    printf("x+y=%d\n", t->add_xy());
-
-    delete t;
+    Parent* parent = new Parent(23, 77);
+    delete parent; 
 
     return 0;
 }
