@@ -36,5 +36,7 @@ int main() {
 
     printf("x+y=%d\n", t->add_xy());
 
+    delete t;
+
     return 0;
 }
