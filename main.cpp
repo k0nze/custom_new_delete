@@ -1,6 +1,19 @@
 #include <cstdio>
 #include <cstdlib>
 
+// exceptions are not handled for demonstration purposes
+void* operator new(size_t size) {
+    void* p = malloc(size);
+    printf("called new with size=%lu, p=%p\n", size, p);
+    return p;
+}
+
+// exceptions are not handled for demonstration purposes
+void operator delete(void* p) {
+    printf("called delete p=%p\n", p);
+    free(p);
+}
+
 class Test {
     private:
         int m_x;
@@ -8,6 +21,7 @@ class Test {
 
     public:
         Test() {
+            printf("called Test::Test() p=%p\n", this);
             m_x = 0;
             m_y = 0;
         }
@@ -25,11 +39,12 @@ class Test {
         }
 
         ~Test() {
+            printf("called Test::~Test p=%p\n", this);
         }
 };
 
 int main() {
-    Test* t = new Test;
+    Test* t = new Test();
 
     t->set_x(42);
     t->set_y(77);
