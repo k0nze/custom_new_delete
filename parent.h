@@ -4,7 +4,7 @@
 #include "new.h"
 
 class Parent {
-    private:
+    protected:
         int m_x;
         int m_y;
 
@@ -17,6 +17,13 @@ class Parent {
 
         NEW_OP
         DELETE_OP
+
+        void* operator new[](size_t size) {
+            void* p = malloc(size);
+            printf("called new[] with size=%lu, p=%p\n", size, p);
+            return p;
+        }
+
 };
 
 #endif

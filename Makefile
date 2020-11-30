@@ -7,7 +7,7 @@ all: main
 %.o: %.cpp
 	$(CXX) -c $< -o $@
 
-main: $(OBJECTS)
+main: $(OBJECTS) 
 	$(CXX) $(OBJECTS) -o $@
 
 .PHONY clean:
