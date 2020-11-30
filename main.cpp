@@ -26,6 +26,12 @@ class Test {
             m_y = 0;
         }
 
+        Test(int x, int y) {
+            printf("called Test::Test(int x, int y) p=%p\n", this);
+            m_x = x;
+            m_y = y;
+        }
+
         void set_x(int x) {
             m_x = x;
         }
