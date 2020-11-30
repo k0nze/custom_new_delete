@@ -18,12 +18,6 @@ class Parent {
         NEW_OP
         DELETE_OP
 
-        void* operator new[](size_t size) {
-            void* p = malloc(size);
-            printf("called new[] with size=%lu, p=%p\n", size, p);
-            return p;
-        }
-
 };
 
 #endif
