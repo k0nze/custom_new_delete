@@ -50,10 +50,15 @@ class Test {
 };
 
 int main() {
+
+    Test* t = new Test(42, 77);
+
+    /*
     Test* t = new Test();
 
     t->set_x(42);
     t->set_y(77);
+    */
 
     printf("x+y=%d\n", t->add_xy());
 
